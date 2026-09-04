@@ -69,7 +69,7 @@ public class TravelPostService {
 
     //Find By location
     public List<TravelPost> getPostsByLocation(String location) {
-        return travelPostRepository.findByLocation(location);
+        return travelPostRepository.findByLocationContainingIgnoreCase(location);
     }
 
     //For logged In User
@@ -92,4 +92,16 @@ public class TravelPostService {
         return travelPostRepository.findByUserId(user.getId());
     }
 
+    //Likes
+    public TravelPost likePost(Long id) {
+        TravelPost post = travelPostRepository.findById(id).orElse(null);
+
+        if(post != null) {
+            post.setLikes(post.getLikes()+1);
+
+            return travelPostRepository.save(post);
+        }
+
+        return null;
+    }
 }

@@ -9,5 +9,5 @@ public interface TravelPostRepository extends JpaRepository<TravelPost, Long> {
 
     List<TravelPost> findByUserId(Long id);
 
-    List<TravelPost> findByLocation(String location);
+    List<TravelPost> findByLocationContainingIgnoreCase(String location);
 }

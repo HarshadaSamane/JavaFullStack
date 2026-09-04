@@ -19,6 +19,8 @@ public class TravelPost {
 
     private String location;
 
+    private int likes;
+
     @ManyToOne
     @JsonBackReference
     private User user;

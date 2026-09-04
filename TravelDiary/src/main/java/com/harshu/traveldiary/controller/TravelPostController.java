@@ -97,4 +97,8 @@ public class TravelPostController {
         );
     }
 
+    @PutMapping("/{id}/like")
+    public TravelPost likePost(@PathVariable Long id) {
+        return travelPostService.likePost(id);
+    }
 }
